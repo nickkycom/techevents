@@ -1,8 +1,10 @@
 /*
  *  JOMC586 Final Project: API Integration
- *  Tech Events Across the Globe
+ *  Let's go tech places: Tech Events Around the Globe
+ *  Main stylesheet 
  *  Nick Shchetko, 2013
 */
+
 /*CSS START*/
 
 /*FONTS START*/
@@ -25,6 +27,7 @@
 
 /*DEBUG START: Overriding some bugs in BS3*/
 /*like https://github.com/twbs/bootstrap/issues/9862?source=cc */
+
 @media (min-width: 768px) {
 	.row { margin-right: 0; margin-left: 0; }
 }
@@ -147,16 +150,11 @@ a {
   overflow-x: hidden;
 }
 
-@media (max-width:767px) {
-
-}
-
-
 html {
     height: 100%;
 }
 
-bottommargin {
+.bottommargin {
    margin-bottom: 5px;
  }
 
@@ -236,4 +234,5 @@ bottommargin {
 }
 
 /*Main CSS END*/
+
 /*CSS END*/
