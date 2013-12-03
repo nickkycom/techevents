@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--JOMC586 Final Project: API Integration-->
+<!--In Decline: Major Technology Events Across the Globe Go Online-->
+<!--Nick Shchetko, 2013-->
+ 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>In Decline: Major Technology Events Across the Globe Go Online</title>
+<!--CSS: JQUERY, BS3, LOCAL STYLE-->
+<link rel="stylesheet" href="css/jquery-ui.css" />
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="../../assets/js/html5shiv.js"></script>
+<script src="../../assets/js/respond.min.js"></script>
+<![endif]-->
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>  
+<!--CONTAINER-->
+    <div class="container">
+      <H1>In Decline: Major Technology Events Across the Globe Go Online</H1>
+	  <br/>
+	  <P>
+	  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean adipiscing faucibus enim facilisis dapibus. Fusce aliquam posuere felis a iaculis. Fusce pellentesque velit vel orci aliquet accumsan. Duis molestie sapien eu nisl vehicula, ut sodales dolor pulvinar. Morbi accumsan justo quis elit consequat sodales. Fusce fermentum odio feugiat consectetur facilisis. Vivamus non cursus diam. Sed id viverra purus. Nullam feugiat luctus dolor. Sed tempor sodales neque, eget elementum tellus consequat ac.
+	  </P><br/>
+	  In hac habitasse platea dictumst. Fusce vitae pretium risus, et vestibulum nisl. Cras dapibus a nibh varius consectetur. Quisque ut porttitor erat. Nulla blandit libero ac diam interdum, nec blandit mi vestibulum. Etiam gravida posuere arcu sed egestas. Morbi sed magna nec turpis facilisis faucibus sed quis ligula. Suspendisse venenatis gravida sollicitudin. Aliquam et mauris lacinia sapien pharetra egestas. Pellentesque auctor tellus luctus feugiat pharetra. Etiam venenatis est vel dignissim tempus. Nulla adipiscing, est eu tempus ultricies, neque mi suscipit risus, ut gravida ligula purus et mauris. Aliquam egestas egestas metus ut iaculis. Pellentesque condimentum condimentum risus eget condimentum. Aenean vehicula nibh gravida, iaculis elit ut, mollis est.
+	  </P><br/>
+	  Vivamus sed enim nisl. Nunc auctor vitae purus a ultricies. Quisque libero magna, egestas ut massa nec, suscipit tincidunt velit. Sed ac libero nec mi tincidunt auctor id fringilla lectus. Cras eget aliquet leo, a porta diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin euismod nisl odio, at hendrerit orci pellentesque sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales consequat fringilla. Aenean eget est quam. Curabitur lobortis enim rutrum consectetur auctor. Praesent leo eros, porta rutrum sollicitudin a, condimentum a lectus. Vestibulum diam mauris, luctus ac cursus sed, convallis id nulla. Sed dignissim odio eget nulla pellentesque condimentum. Suspendisse ligula orci, facilisis eget odio non, sagittis suscipit massa.
+	  </P><br/>
+	  Fusce sed bibendum quam. Nullam eu mi dui. Vivamus consequat, nunc eget sagittis vehicula, quam diam sagittis ante, eget sagittis lectus eros dictum turpis. Nulla facilisi. Aenean eleifend eleifend neque a ultrices. In fringilla accumsan justo, vitae faucibus neque sagittis sit amet. Curabitur consequat vehicula risus vel tempor. Integer ultricies ornare ultrices. Suspendisse augue lectus, condimentum in rhoncus sit amet, imperdiet at neque.
+	  </p><br/>
+	  Ut viverra arcu porttitor ligula auctor rutrum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi fringilla aliquam diam, sed cursus magna lacinia sed. Mauris nec libero turpis. Praesent a odio non purus molestie facilisis ac sed nulla. Aliquam pretium vel dui ac bibendum. Integer blandit ac tortor at ultrices. Cras quis egestas odio. Ut sodales porttitor nisi. Nunc ultrices leo a est egestas, non cursus ligula auctor. Aliquam convallis condimentum nunc, id volutpat purus. Nullam dapibus pulvinar eros, at consequat odio molestie auctor. Nunc elementum metus ut risus pulvinar, in ultricies neque convallis. Maecenas non scelerisque sapien. Vivamus tristique odio eu libero lobortis, in ullamcorper ligula molestie. Vivamus venenatis vulputate tortor a viverra.  
+	  <div id="map-canvas"/>	  
+    </div>
+<!--CONTAINER ENDS-->
+
+
+<!--BODY ENDS-->
+<!--JS BLOCK-->
+<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfOgUN85hKHPOdRABd31lfVP415pz9oD8&sensor=true"></script>
+<script type="text/javascript">
+  //Main code part
+  
+    $(document).ready(function(){  
+      // DocumentReady: runs initialize
+     console.log("READY");
+     
+     // GOOGLE MAP
+     
+		var mapOptions = {
+	       // Barcelona - MWC
+		 center: new google.maps.LatLng(41.354545, 2.128118),
+		 zoom: 16,
+		 mapTypeId: google.maps.MapTypeId.SATELLITE
+	       };
+	       
+	   //test event listener
+		      
+	       var map = new google.maps.Map(document.getElementById("map-canvas"),
+		   mapOptions);
+	  
+	     var marker = new google.maps.Marker({
+	       position: map.getCenter(),
+	       map: map,
+		title: 'Click to zoom'
+	     });
+	 
+	     google.maps.event.addListener(map, 'center_changed', function() {
+	       // 3 seconds after the center of the map has changed, pan back to the
+	       // marker.
+	       window.setTimeout(function() {
+	       map.panTo(marker.getPosition());
+	     }, 3000);
+	   });
+	     
+	     google.maps.event.addListener(marker, 'click', function() {
+	   map.setZoom(8);
+	   map.setCenter(marker.getPosition());
+	   //zoom out on marker click
+        });
+     
+     });   
+     
+  //end of Javasript
+</script>
+</body>
+</html>

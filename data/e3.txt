@@ -1,0 +1,15 @@
+<IMG CLASS="descimg" ALT="logo MWC" SRC="img/e3logo.png"><STRONG class="bigger">E3</STRONG> is the biggest event in the world for all things mobile. 
+It was first held in 2008, but prior to that the similar event, 3GSM Congress, was held since 2001.
+<BR>&nbsp;<BR>
+Companies from all around the world present their new products and technologies at MWC. Since 2006 MWC takes place in Barcelona, 
+a picturesque city on the Mediterranean shore.
+<BR>&nbsp;<BR>
+<STRONG>Next event</STRONG>: <a target=_new href=http://www.mobileworldcongress.com>24-27 February 2014</a>
+<BR>
+<STRONG>Attendance</STRONG>: 72,534
+<BR>
+<STRONG>Exibit area</STRONG>: 94,000 m2
+<BR>
+<STRONG>Place</STRONG>: Barcelona, Spain
+<BR>
+<STRONG>Weather (now)</STRONG>:  <SPAN ID="weather"></SPAN>

@@ -1,0 +1,34 @@
+<html>
+<head>
+<script src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+    
+var apiurl = "http://api.flickr.com/services/feeds/photos_public.gne?tags=cebit&tagmode=any&format=json&jsoncallback=?"
+ //var apiurl =  "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=b7124da8c2790259d060dcf82ca24b49&tags=MWC&jsoncallback=?";
+        $(document).ready(function(){
+                console.log("document ready")
+                $.getJSON(apiurl,function(json){
+                // print title
+                console.log(json);
+                
+                console.log(json.items[0].title);
+                
+               // $("#results").append('<p>"'+json.title+'"</p>');
+                
+                console.log(json.generator);
+      //          var myresult = json.items[0];
+        //        $("#results").append('<a href="'+myresult.link+'"><img src="'+myresult.media.m+'"</img></a><p>');
+                
+                //flicking through the main array
+          $.each(json.items,function(i,myresult){
+          $("#results").append('<a href="'+myresult.link+'"><img src="'+myresult.media.m+'"</img></a><p>');
+          });
+                });
+        });
+
+</script>
+</head>
+<body>
+<div id="results"></div>
+</body>
+</html>

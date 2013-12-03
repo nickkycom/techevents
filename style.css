@@ -1,0 +1,239 @@
+/*
+ *  JOMC586 Final Project: API Integration
+ *  Tech Events Across the Globe
+ *  Nick Shchetko, 2013
+*/
+/*CSS START*/
+
+/*FONTS START*/
+
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), local('DroidSans'), url(http://themes.googleusercontent.com/static/fonts/droidsans/v3/s-BiyweUPV0v-yRb-cjciL3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/droidsans/v3/EFpQQyG9GqCrobXxL-KRMXbFhgvWbfSbdVg11QabG8w.woff) format('woff');
+}
+
+/*FONTS END*/
+
+/*DEBUG START: Overriding some bugs in BS3*/
+/*like https://github.com/twbs/bootstrap/issues/9862?source=cc */
+@media (min-width: 768px) {
+	.row { margin-right: 0; margin-left: 0; }
+}
+
+.containerfix {
+   max-width: 100%;
+   padding-right: 5%;
+   padding-left: 5%;
+ }
+ 
+ .containerfix2 {
+   max-width: 100%;
+   padding-right: 4%;
+   padding-left: 4%;
+ }
+
+.col-xs-1,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-sm-1,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-lg-1,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12 {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+/*DEBUG END*/
+
+/*Main CSS START*/
+
+body {
+height: 100%;
+margin: 0; padding: 0;
+}
+
+body, a, h1, h2, h3, h4, h5, p, hr, select, input {
+	font-family: 'Droid Sans', sans-serif;
+	color: black;
+}
+
+.small
+{
+  font-size: 80%;
+}
+
+h1, h2 {
+  margin: 0; padding: 0;
+}
+
+a {
+	color: #428bca;
+	cursor: pointer;
+}
+
+  a:hover {
+    text-decoration: underline important;
+    cursor: pointer;
+  }
+  
+  a:visited {
+    text-decoration: underline important;
+    cursor: pointer;
+  }
+
+.inset {
+  padding: 20px;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.topmargin20 {
+  margin-top: 10px;
+}
+
+.overflowdisabled {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+@media (max-width:767px) {
+
+}
+
+
+html {
+    height: 100%;
+}
+
+bottommargin {
+   margin-bottom: 5px;
+ }
+
+#map-canvas { height: 100%; }
+
+#twitter {
+	  position: absolute;
+	  width: 250px;
+	  /*height: 100px;*/
+	  background-color: #d6d6d6;
+	  box-shadow: 2px 2px 2px #000000;
+	  border-style: solid;
+	  border-width: 1px;
+	  border-color: #808080;
+	  bottom: 3%;
+	  right: 1%;
+	  padding: 5px;
+	  cursor:move;
+         }
+	   
+#eventdesc {
+	  position: absolute;
+	  width: 300px;
+	  clearfix;
+	  background-color: #d6d6d6;
+	  box-shadow: 2px 2px 2px #000000;
+	  padding: 5px;
+	  border-style: solid;
+	  border-width: 1px;
+	  border-color: #808080;
+	  top: 3%;
+	  right: 1%;
+	  cursor:move;
+	  }
+	  
+#flickr {
+	  position: absolute;
+	  width: 240px;
+	  height: 180px;
+	  background-color: #d6d6d6;
+	  box-shadow: 2px 2px 2px #000000;
+	  border-style: solid;
+	  border-width: 1px;
+	  border-color: #808080;
+/*	  padding: 10px;*/
+	  bottom: 3%;
+	  left: 1%;
+	  cursor:move;
+	  }
+	  
+#eventheading {
+	  position: absolute;
+	  width: 300px;
+	  background-color: #d6d6d6;
+	  box-shadow: 2px 2px 2px #000000;
+	  border-style: solid;
+	  border-width: 1px;
+	  border-color: #808080;
+	  top: 3%;
+	  left: 1%;
+	  padding: 5px;
+	  cursor:move;
+}
+
+.tweetimg {
+  float: left;
+  margin: 5px;
+}
+
+.descimg {
+  float: right;
+  margin: 5px;
+}
+
+.bigger {
+  font-size: 130%;
+}
+
+/*Main CSS END*/
+/*CSS END*/

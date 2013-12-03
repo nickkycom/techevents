@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<countries>
+        <country>
+          <url>http://www.prisonstudies.org/info/worldbrief/wpb_country.php?country=190</url>
+		  <name>United States of America</name>
+          <prisoners>716</prisoners>
+        </country>
+
+		<country>
+          <url>http://www.prisonstudies.org/info/worldbrief/wpb_country.php?country=138</url>
+		  <name>France</name>
+          <prisoners>101</prisoners>
+        </country>
+		
+		<country>  
+          <url>http://www.prisonstudies.org/info/worldbrief/wpb_country.php?country=139</url>
+		  <name>Germany</name>
+          <prisoners>79</prisoners>
+        </country>
+
+        <country>  
+          <url>http://www.prisonstudies.org/info/worldbrief/wpb_country.php?country=147</url>
+		  <name>Italy</name>
+          <prisoners>106</prisoners>
+        </country>
+
+        <country>  
+          <url>http://www.prisonstudies.org/info/worldbrief/wpb_country.php?country=97</url>
+		  <name>Japan</name>
+          <prisoners>51</prisoners>
+        </country>
+
+        <country>  
+          <url>http://www.prisonstudies.org/info/worldbrief/wpb_country.php?country=118</url>
+		  <name>Russian Federation</name>
+          <prisoners>475</prisoners>
+        </country>
+
+        <country>  
+          <url>http://www.prisonstudies.org/info/worldbrief/wpb_country.php?country=169</url>
+		  <name>United Kingdom</name>
+          <prisoners>148</prisoners>
+        </country>
+
+		<country>  
+          <url>http://www.prisonstudies.org/info/worldbrief/wpb_country.php?country=188</url>
+		  <name>Canada</name>
+          <prisoners>118</prisoners>
+        </country>
+
+</countries> 
