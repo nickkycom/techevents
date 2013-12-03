@@ -106,10 +106,16 @@ $(document).ready(function(){
      
      // GOOGLE MAP
      
+     //calculate zoom based on screen resolution
+     zoomlevel = 2;
+     //standard
+     console.log(screen.width);
+     if (screen.width>1920) zoomlevel = 3;
+     
 		var mapOptions = {
 	       // Barcelona - MWC
 		 center: new google.maps.LatLng(41.354545, 2.128118),
-		 zoom: 1,
+		 zoom: zoomlevel,
 		 disableDefaultUI: true,
 		 mapTypeId: google.maps.MapTypeId.SATELLITE,
 	       };
