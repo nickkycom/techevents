@@ -1,17 +1,10 @@
-<IMG CLASS="descimg" ALT="logo MWC" SRC="img/mwclogo.png"><STRONG class="bigger">CES</STRONG> is the biggest event in the world for all things mobile. 
-It was first held in 2008, but prior to that the similar event, 3GSM Congress, was held since 2001.
+<IMG CLASS="descimg" ALT="logo CES" SRC="img/ceslogo.png"><STRONG class="bigger"><a target=_new href=http://www.cesweb.org>CES</a></STRONG>, or Consumer Electronics Expo is the world's largest annual innovation event, encompassing productsand services from 15 product categories: from Audio to Wireless.<BR>&nbsp;<BR>
+CES is organized by Computer Electronics Association, the organization that connects more than 2000 manufacturers, retailers, installers, content distributors and representatives of the entire consumer electronics industry value chain.
 <BR>&nbsp;<BR>
-Companies from all around the world present their new products and technologies at MWC. Since 2006 MWC takes place in Barcelona, 
-a picturesque city on the Mediterranean shore.
-<BR>&nbsp;<BR>
-<STRONG>Next event</STRONG>: 24-27 February 2014                         
+<STRONG>Next event</STRONG>: <a target=_new href=http://www.cesweb.org>7-10 January 2014</a>
 <BR>
-<STRONG>Place</STRONG>: Barcelona, Spain
+<STRONG>Attendance</STRONG>: 152,759
 <BR>
-<STRONG>Weather (now)</STRONG>:  <SPAN ID="weather"></SPAN>
+<STRONG>Place</STRONG>: Las Vegas, US
 <BR>
-<STRONG>Attendance</STRONG>: 72,534
-<BR>
-<STRONG>Exibit area</STRONG>: 94,000 m2
-<BR>
-<STRONG>Website</STRONG>: <a target=_new href=http://www.mobileworldcongress.com>mobileworldcongress.com</a>
+<STRONG>Weather (now)</STRONG>:  <SPAN id="weather"></SPAN>

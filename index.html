@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Let's Go Tech Places: Tech Events Around the Globe</title>
+<title>Tech Events Dashboard</title>
 
 <!--CSS: JQUERY, BS3, LOCAL STYLE-->
 <link rel="stylesheet" href="css/jquery-ui.css" />
@@ -23,11 +23,17 @@
 </head>
 <body>
 <div id="map-canvas"></div>
-<div id="eventheading"><H2 class="inline">Let's go tech places!</H2><BR>If you are a real technology enthusiast, attending "offline" tech conferences is a must. Here's a list of events you should consider putting on your calendar in 2014:<BR>&nbsp;<BR><UL><LI><a id="setmwc">Mobile World Congress</a><LI><a id="setcebit">CEBIT</a><LI><a id="setces">Consumer Electronics Expo</a><LI><a id="setcomputex">Computex</a><LI><a id="sete3">Electronic Entertainment Expo (E3)</a></UL>
+<div id="eventheading"><div class="windowstyle" ><div class="smallwindowpadding">Navigation</div></div>
+      <div class="windowpadding">
+      <H2 class="inline">Tech Events Dashboard</H2><BR>If you are a real technology enthusiast, attending "offline" tech conferences is a must. Here's a list of events you should consider putting on your calendar in 2014:<BR>&nbsp;<BR><UL><LI><a id="sete3">Electronic Entertainment Expo (E3)</a><LI><a id="setcebit">CEBIT</a><LI><a id="setcomputex">Computex</a><LI><a id="setces">Consumer Electronics Expo (CES)</a><LI><a id="setmwc">Mobile World Congress (MWC)</a></UL>
+      </div>
 </div>
-<div id="eventdesc" class="clearfix"><P id="textt"></p></div>
-<div id="twitter" class="clearfix"><P class="small" id="tweet"></p></div>
-<div id="flickr"></div>
+<div id="eventdesc" class="clearfix"><div class="windowstyle" ><div class="smallwindowpadding">Description</div></div>
+      <div class="windowpadding"><P id="textt"></p></div></div>
+<div id="twitter" class="clearfix"><div class="windowstyle" ><div class="smallwindowpadding">Tweets</div></div>
+      <div class="windowpadding"><P class="small" id="tweet"></p></div></div>
+<div id="flickr" class="clearfix"><div class="windowstyle" ><div class="smallwindowpadding">Flickr photos</div></div>
+</div>
 
 <!--BODY ENDS-->
 
@@ -42,6 +48,9 @@
 var k = 0;
 var currentevent = 0; //start with MWC
 var interval = 4000; //ticking interval
+var myWeather = "http://api.wunderground.com/api/8f40bacb1eb02342/conditions/q/Spain/Barcelona.json" //has to be global
+var mapOptions;
+var map;
 
 //Ticker (each 4 sec)
 window.setInterval(function(){
@@ -54,7 +63,7 @@ window.setInterval(function(){
 
 //Ticker (each 300 sec)
 window.setInterval(function(){
-  //clean cache
+  //clean tweet cache every 5 min
   updateTweet(0,99);
 }, 300000);
 //End ticker
@@ -62,10 +71,10 @@ window.setInterval(function(){
 $(document).ready(function(){  
 // DocumentReady: runs initialize
      console.log("Ready");
-     
      //mock tweet for debug!!!
      $("#tweet").append("RT @stark: lo mejor de Sony en un smartphone. el Xperia Z en #mwc13 http://t.co/SgPuNBvkU9 Abraham David CREATED: Tue Nov 26 22:57:50 +0000 2013");
      
+     // INIT
      hideAll();
      $("#twitter").draggable();
      $("#flickr").draggable();
@@ -75,21 +84,34 @@ $(document).ready(function(){
      $("#flickr").resizable();
      $("#eventdesc").resizable();
      $("#eventheading").resizable();
+ 
      $("#setmwc").click( function() {
+      map.setZoom(16);
+      map.setCenter(marker.getPosition());
       setCurrentEvent(0);
      });
      $("#setcebit").click( function() {
+            map.setZoom(16);
+      map.setCenter(marker2.getPosition());
       setCurrentEvent(1);
      });
      $("#setces").click( function() {
+            map.setZoom(16);
+      map.setCenter(marker3.getPosition());
       setCurrentEvent(2);
      });
      $("#setcomputex").click( function() {
+            map.setZoom(16);
+      map.setCenter(marker4.getPosition());
       setCurrentEvent(3);
      }); 
      $("#sete3").click( function() {
+            map.setZoom(16);
+      map.setCenter(marker5.getPosition());
       setCurrentEvent(4);
      });
+     
+    // MAIN    
      
     // START FLICKR    
  updatePic(0,currentevent);
@@ -117,7 +139,7 @@ $(document).ready(function(){
 		 center: new google.maps.LatLng(41.354545, 2.128118),
 		 zoom: zoomlevel,
 		 disableDefaultUI: true,
-		 mapTypeId: google.maps.MapTypeId.SATELLITE,
+		 mapTypeId: google.maps.MapTypeId.ROADMAP,
 	       };
 	       
 	         var featureOpts = [
@@ -145,29 +167,54 @@ $(document).ready(function(){
 	         
 	    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 	  
-	     var marker = new google.maps.Marker({
+	    //marker MWC
+	    var marker = new google.maps.Marker({
 	       position: map.getCenter(),
 	       map: map,
 		title: 'MWC - Barcelona, Spain'
 	     });
+	    //listener MWC 
+	    google.maps.event.addListener(marker, 'click', function() {
+	    map.setZoom(16);
+	    map.setCenter(marker.getPosition());
+	    setCurrentEvent(0);
+	    });
 	     
 	     var marker2 = new google.maps.Marker({
 	       position: new google.maps.LatLng(52.326100, 9.810060),
 	       map: map,
 		title: 'CEBIT - Hannover, Germany'
 	     });
-
+	    //listener CEBIT
+	    google.maps.event.addListener(marker2, 'click', function() {
+	    map.setZoom(16);
+	    map.setCenter(marker2.getPosition());
+	    setCurrentEvent(1);
+	    });
+	     
 	     var marker3 = new google.maps.Marker({
 	       position: new google.maps.LatLng(36.131229, -115.150902),
 	       map: map,
 		title: 'CES - Las Vegas, USA'
 	     });
+	    //listener CES
+	    google.maps.event.addListener(marker3, 'click', function() {
+	    map.setZoom(16);
+	    map.setCenter(marker3.getPosition());
+	    setCurrentEvent(2);
+	    });
 	     
 	    var marker4 = new google.maps.Marker({
 	       position: new google.maps.LatLng(25.056736, 121.61803),
 	       map: map,
 		title: 'Computex - Taipei, Taiwan'
 	     });
+	    	    //listener Computex
+	    google.maps.event.addListener(marker4, 'click', function() {
+	    map.setZoom(16);
+	    map.setCenter(marker4.getPosition());
+	    setCurrentEvent(3);
+	    });
 	    
 	    
 	    var marker5 = new google.maps.Marker({
@@ -175,6 +222,12 @@ $(document).ready(function(){
 	       map: map,
 		title: 'E3 - Los Angeles, USA'
 	     });
+	    	    //listener E3
+	    google.maps.event.addListener(marker5, 'click', function() {
+	    map.setZoom(16);
+	    map.setCenter(marker5.getPosition());
+	    setCurrentEvent(4);
+	    });
      
      });   
 
@@ -220,7 +273,7 @@ function updatePic(id,eventid){
     
 //AND NOW RESIZE ACCORDINGLY
     $("#flickr").width($( "#flickrimg" ).width());
-    $("#flickr").height($( "#flickrimg" ).height());
+    $("#flickr").height($( "#flickrimg" ).height()+20);
     
 }
 
@@ -255,7 +308,8 @@ function setCurrentEvent(eventid){
     //and tweet
     updateTweet(k,eventid); 
     //and text, of course
-    updateText(eventid);  
+    updateText(eventid);
+    map.setZoom(5);
 }
 
 function updateText(eventid){
@@ -267,19 +321,25 @@ function updateText(eventid){
       break;
     case 1:
     myFileUrl = 'data/cebit.txt'; //CeBIT
-        myWeather = 'http://api.wunderground.com/api/8f40bacb1eb02342/geolookup/conditions/q/Spain/Barcelona.json'; 
+       myWeather = 'http://api.wunderground.com/api/8f40bacb1eb02342/conditions/q/zmw:00000.1.10338.json'; 
+        //myWeather = 'http://api.wunderground.com/api/8f40bacb1eb02342/geolookup/conditions/q/Germany/Hanover.json'; 
       break;
     case 2:
+          myWeather = 'http://api.wunderground.com/api/8f40bacb1eb02342/conditions/q/NV/Las_Vegas.json'; 
     myFileUrl = 'data/ces.txt'; //CES
       break;
     case 3:
+    myWeather = 'http://api.wunderground.com/api/8f40bacb1eb02342/conditions/q/zmw:00000.1.58968.json'; 
     myFileUrl = 'data/computex.txt'; //COMPUTEX
       break;
     case 4:
+      myWeather = 'http://api.wunderground.com/api/8f40bacb1eb02342/conditions/q/CA/Los_Angeles.json'; 
     myFileUrl = 'data/e3.txt'; //E3
       break;
     default:
     myFileUrl = 'data/mwc.txt'; //MWC is default
+      myWeather = 'http://api.wunderground.com/api/8f40bacb1eb02342/conditions/q/Spain/Barcelona.json'; 
+
     }
       
       $.ajax({
@@ -287,24 +347,20 @@ function updateText(eventid){
 	url:myFileUrl,
 	dataType: "text",
 	success: processText
-	//what to do next
      })
-  
-      //getweather
-    $.ajax({
-  url : myWeather,
-  dataType : "jsonp",
-  success : function(parsed_json) {
-  $("#weather").empty();
-  $("#weather").append("<a href= " + parsed_json['current_observation']['forecast_url'] + ">" + parsed_json['current_observation']['temperature_string'] + ", " + parsed_json['current_observation']['weather'] + "</a>");
-   }
-  });
       
 }
 
 function processText(textt){
-  $("#textt").empty();
-  $("#textt").append(textt);
+  $("#textt").html(textt);
+        //getweather
+    $.ajax({
+  url : myWeather,
+  dataType : "jsonp",
+  success : function(parsed_json) {
+  $("#weather").html("<a href= " + parsed_json['current_observation']['forecast_url'] + ">" + parsed_json['current_observation']['temperature_string'] + ", " + parsed_json['current_observation']['weather'] + "</a>");
+   }
+  });
 }  
 
 function updateTweet(id,eventid){
